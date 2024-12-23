@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+
+  <model name="table_top">
+  <link name="table_top_link">
+    <inertial>
+      <mass>40.0</mass>
+      <pose>0.0 0.0 0.5 0 0 0</pose>
+      <inertia>
+          <ixx>2.5</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.5</iyy>
+          <iyz>0</iyz>
+          <izz>4.0</izz>
+      </inertia>
+    </inertial>
+    <visual name="bottom">
+      <pose>0.0 0.0 0.5 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>25.0 25 0.05</size>
+        </box>
+      </geometry>
+      <material>
+        <diffuse>0.0 0.0 1.0 1.0</diffuse>
+      </material>
+    </visual>
+    <collision name="bottom">
+      <pose>0.0 0.0 0.5 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>25.0 25.0 0.05</size>
+        </box>
+      </geometry>
+      <drake:proximity_properties>
+        <drake:compliant_hydroelastic/>
+        <drake:hydroelastic_modulus>1.5e6</drake:hydroelastic_modulus>
+      </drake:proximity_properties>
+    </collision>
+  </link>
+  <frame name="table_top_center">
+    <pose relative_to="table_top_link">0 0 0.525 0 0 0</pose>
+  </frame>
+</model>
+
+</sdf>
